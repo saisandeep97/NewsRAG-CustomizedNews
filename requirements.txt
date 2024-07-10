@@ -1,0 +1,9 @@
+flask
+groq
+pinecone-client
+python-dotenv
+pandas
+scikit-learn
+nltk
+transformers
+waitress

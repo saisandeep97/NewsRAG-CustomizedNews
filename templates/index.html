@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News RAG System</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        #query-input { width: 100%; padding: 10px; margin-bottom: 10px; }
+        #query-button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        #response { margin-top: 20px; border: 1px solid #ddd; padding: 10px; }
+        .highlight { margin-bottom: 20px; }
+        .highlight h3 { color: #4CAF50; }
+    </style>
+</head>
+<body>
+    <h1>News RAG System</h1>
+    <input type="text" id="query-input" placeholder="Enter your query">
+    <button id="query-button">Submit Query</button>
+    <div id="response"></div>
+    <h2>News Highlights</h2>
+    <div id="highlights"></div>
+
+    <script>
+        document.getElementById('query-button').addEventListener('click', async () => {
+            const query = document.getElementById('query-input').value;
+            const response = await axios.post('/api/query', { query });
+            document.getElementById('response').innerHTML = `<strong>Response:</strong> ${response.data.response}`;
+        });
+
+        async function loadHighlights() {
+            const highlights = await axios.get('/api/highlights');
+            const highlightsDiv = document.getElementById('highlights');
+            highlightsDiv.innerHTML = '';
+            for (const [category, summary] of Object.entries(highlights.data)) {
+                highlightsDiv.innerHTML += `
+                    <div class="highlight">
+                        <h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+                        <p>${summary}</p>
+                    </div>
+                `;
+            }
+        }
+
+        loadHighlights();
+    </script>
+</body>
+</html>
