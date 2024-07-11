@@ -4,14 +4,8 @@ from sklearn.preprocessing import normalize
 from transformers import AutoTokenizer, AutoModel
 import torch
 import re
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 import pickle
 
-# Download necessary NLTK data
-nltk.download('punkt')
-nltk.download('stopwords')
 
 # Load the pre-trained model and tokenizer
 model_name = 'sentence-transformers/all-MiniLM-L6-v2'
