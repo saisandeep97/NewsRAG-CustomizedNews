@@ -44,11 +44,11 @@ def retrieve_relevant_articles(query: str, top_k: int = 5) -> List[Dict]:
 # ... rest of the code remains the same
 
 def generate_response(query: str, relevant_articles: List[Dict]) -> str:
-    """Generate a response using OpenAI's GPT model based on the query and relevant articles."""
+    """Generate a response using LLM based on the query and relevant articles."""
     context = "\n\n".join([f"Title: {article['title']}\nSource: {article['source']}\nDate: {article['publishedAt']}" 
                            for article in relevant_articles])
     
-    prompt = f"""Based on the following news articles, please answer the query: "{query}"
+    prompt = f"""Based on the following news articles, please answer the query in less than 150 tokens: "{query}"
 
                     Context:
                     {context}

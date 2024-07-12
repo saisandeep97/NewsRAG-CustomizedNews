@@ -3,7 +3,7 @@ import pandas as pd
 import os 
 
 # NewsAPI configuration
-API_KEY = os.getenv("NEWSAPI_API_KEY")
+API_KEY = os.getenv("NEWS_API_KEY")
 BASE_URL = "https://newsapi.org/v2/top-headlines"
 
 # Categories and countries

@@ -20,7 +20,7 @@ def generate_summary(articles, category):
     context = "\n\n".join([f"Title: {article['title']}\nSource: {article['source']}" 
                            for article in articles[:5]])  # Use top 5 articles
     
-    prompt = f"""Summarize the following news highlights for the {category} category in about 50 words:
+    prompt = f"""Summarize the following news highlights for the {category} category in less than 100 words:
 
 {context}
 
@@ -32,7 +32,7 @@ Summary:"""
             {"role": "system", "content": "You are a helpful assistant that summarizes news highlights."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=60,
+        max_tokens=100,
         n=1,
         stop=None,
         temperature=0.7,
