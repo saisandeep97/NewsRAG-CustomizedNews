@@ -1,5 +1,5 @@
 
-# News RAG (Retrieval-Augmented Generation) System
+# NewsInsight AI
 
 ## Overview
 
