@@ -17,7 +17,7 @@ This project is a News Retrieval-Augmented Generation (RAG) system that fetches 
 
 - Python 3.8+
 - Flask (Web Framework)
-- OpenAI API (for embeddings and text generation)
+- Groq API (for embeddings and text generation free alternative to OPEN AI API)
 - Pinecone (Vector Database)
 - NewsAPI (for fetching news articles)
 
@@ -27,7 +27,7 @@ This project is a News Retrieval-Augmented Generation (RAG) system that fetches 
 
 - Python 3.8+
 - NewsAPI Key
-- OpenAI API Key
+- Groq API Key
 - Pinecone API Key
 
 ### Local Setup
